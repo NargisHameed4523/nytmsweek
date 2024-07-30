@@ -10,14 +10,14 @@ import Foundation
 
 class MockService : APIServiceProtocol {
     
-    var isFetchTopStoriesCalled = false
+    var isFetchCalled = false
 
     var completeArticleList: [Article] = [Article]()
     var completionHandler: ((Bool, [Article], Error?) -> ())!
     
     
     func fetchArticleList(periods: PopularArticles.Periods, completion: @escaping (Bool, [Article], Error?) -> (Void)) {
-        isFetchTopStoriesCalled = true
+        isFetchCalled = true
         completionHandler = completion
         
     }

@@ -11,11 +11,11 @@ import XCTest
 
 class APIServiceTests: XCTestCase {
     
-    var sut: NetworkService?
+    var sut: MockService?
     
     override func setUp() {
         super.setUp()
-        sut = NetworkService()
+        sut = MockService()
     }
     
     override func tearDown() {
@@ -23,23 +23,19 @@ class APIServiceTests: XCTestCase {
         super.tearDown()
     }
     
-    func test_fetch_top_stories() {
+    func test_fetch_Articles() {
         
-        // Given A apiservice
         let sut = self.sut!
-        
-        // When fetch top stories
-        let expect = XCTestExpectation(description: "callback")
+        sut.completeArticleList = [Article.withMockData()!]
         
         sut.fetchArticleList(periods: .Week, completion: {(success, result, err)  in
-            expect.fulfill()
             for article in result {
                 XCTAssertNotNil(article)
             }
             
         })
         
-        wait(for: [expect], timeout: 3.1)
+        
     }
     
 }

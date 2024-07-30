@@ -27,6 +27,6 @@ class ArticleRowCellTableViewCell: UITableViewCell {
     }
     func setupUI() {
         bgVw.layer.cornerRadius = 8.0
-        
+        heading.textColor = UIColor.black
     }
 }

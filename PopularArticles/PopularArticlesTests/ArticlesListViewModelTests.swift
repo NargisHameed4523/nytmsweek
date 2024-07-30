@@ -1,5 +1,5 @@
 //
-//  TopStoriesListViewModelTests.swift
+//  ArticlesListViewModelTests.swift
 //  PopularArticlesTests
 //
 //  Created by nargis hameed on 29/07/2024.
@@ -10,7 +10,7 @@
 import XCTest
 @testable import PopularArticles
 
-class TopStoriesListViewModelTests: XCTestCase {
+class ArticlesListViewModelTests: XCTestCase {
     var sut: ArticlesListViewModel!
     var mockAPIService: MockService!
     override func setUp() {
@@ -34,7 +34,7 @@ class TopStoriesListViewModelTests: XCTestCase {
   
     
     
-    func test_fetch_topStories() {
+    func test_fetch_articles() {
         // Given
         mockAPIService.completeArticleList = [Article]()
         
@@ -42,11 +42,11 @@ class TopStoriesListViewModelTests: XCTestCase {
         sut.initFetch()
         
         // Assert
-        XCTAssert(mockAPIService!.isFetchTopStoriesCalled)
+        XCTAssert(mockAPIService!.isFetchCalled)
         
     }
     
-    func test_fetch_topStories_fail() {
+    func test_fetch_fail() {
         
         // When
         sut.initFetch()
@@ -90,7 +90,7 @@ class TopStoriesListViewModelTests: XCTestCase {
 
 
 //MARK: State control
-extension TopStoriesListViewModelTests {
+extension ArticlesListViewModelTests {
     private func goToFetchArticlesFinished() {
         mockAPIService.completeArticleList =  [Article.withMockData()!]
         sut.initFetch()

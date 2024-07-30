@@ -8,7 +8,7 @@
 import Foundation
 
 struct Cells {
-    static let topStoryListCellId = "ArticleRowCellTableViewCell"
+    static let ListCellId = "ArticleRowCellTableViewCell"
 }
 
 struct SegueIdentifier {

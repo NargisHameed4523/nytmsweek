@@ -22,13 +22,13 @@ class ArticleListController: UIViewController {
         
         initVM()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationItem.title = Strings.homeTitle
-
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        self.navigationItem.title = Strings.homeTitle
+//
+//    }
     //Mark: Setup View Methods
     func setupUI() {
-        tableView.register(UINib(nibName: Cells.topStoryListCellId, bundle: nil), forCellReuseIdentifier: Cells.topStoryListCellId)
+        tableView.register(UINib(nibName: Cells.ListCellId, bundle: nil), forCellReuseIdentifier: Cells.ListCellId)
         tableView.estimatedRowHeight = 140
         tableView.rowHeight = UITableView.automaticDimension
         
@@ -88,7 +88,7 @@ class ArticleListController: UIViewController {
 extension ArticleListController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.topStoryListCellId , for: indexPath) as? ArticleRowCellTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.ListCellId , for: indexPath) as? ArticleRowCellTableViewCell else {
             fatalError("Cell not exists in storyboard")
         }
         
